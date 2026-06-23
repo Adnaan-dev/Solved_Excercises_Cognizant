@@ -1,127 +1,71 @@
 package com.logging;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import java.util.Collections;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 /**
- * SingletonTest Class
- * 
- * This class demonstrates and tests the Singleton pattern implementation.
- * It verifies that:
- * 1. Only one instance exists
- * 2. getInstance() always returns the same instance
- * 3. Logging functionality works correctly
+ * JUnit 5 tests verifying the Singleton pattern for all three logger
+ * implementations: only one instance ever exists, and getInstance() always
+ * returns that same instance, even across multiple threads.
  */
-public class SingletonTest {
-    
-    public static void main(String[] args) {
-        System.out.println("=== Testing Eager Initialized Logger ===\n");
-        testEagerLogger();
-        
-        System.out.println("\n\n=== Testing Lazy Initialized Logger ===\n");
-        testLazyLogger();
-        
-        System.out.println("\n\n=== Testing Bill Pugh Singleton Logger ===\n");
-        testBillPughLogger();
-        
-        System.out.println("\n\n=== Testing Thread Safety ===\n");
-        testThreadSafety();
+class SingletonTest {
+
+    @Test
+    @DisplayName("Eager Logger returns the same instance")
+    void eagerLogger_isSingleton() {
+        Logger first = Logger.getInstance();
+        Logger second = Logger.getInstance();
+
+        assertSame(first, second);
+        assertEquals(first.hashCode(), second.hashCode());
     }
-    
-    /**
-     * Tests the Eager Initialized Logger Singleton
-     */
-    private static void testEagerLogger() {
-        System.out.println("Getting first instance...");
-        Logger logger1 = Logger.getInstance();
-        System.out.println("First instance: " + logger1);
-        
-        System.out.println("\nGetting second instance...");
-        Logger logger2 = Logger.getInstance();
-        System.out.println("Second instance: " + logger2);
-        
-        System.out.println("\nAre they the same instance? " + (logger1 == logger2));
-        System.out.println("Hash code 1: " + logger1.hashCode());
-        System.out.println("Hash code 2: " + logger2.hashCode());
-        
-        System.out.println("\nTesting logging methods:");
-        logger1.info("This is an info message");
-        logger2.warning("This is a warning message");
-        logger1.error("This is an error message");
-        logger2.debug("This is a debug message");
+
+    @Test
+    @DisplayName("Lazy Logger returns the same instance")
+    void lazyLogger_isSingleton() {
+        LazyLogger first = LazyLogger.getInstance();
+        LazyLogger second = LazyLogger.getInstance();
+
+        assertSame(first, second);
+        assertEquals(first.hashCode(), second.hashCode());
     }
-    
-    /**
-     * Tests the Lazy Initialized Logger Singleton
-     */
-    private static void testLazyLogger() {
-        System.out.println("Getting first instance...");
-        LazyLogger logger1 = LazyLogger.getInstance();
-        System.out.println("First instance: " + logger1);
-        
-        System.out.println("\nGetting second instance...");
-        LazyLogger logger2 = LazyLogger.getInstance();
-        System.out.println("Second instance: " + logger2);
-        
-        System.out.println("\nAre they the same instance? " + (logger1 == logger2));
-        System.out.println("Hash code 1: " + logger1.hashCode());
-        System.out.println("Hash code 2: " + logger2.hashCode());
-        
-        System.out.println("\nTesting logging methods:");
-        logger1.info("This is an info message from LazyLogger");
-        logger2.warning("This is a warning message from LazyLogger");
+
+    @Test
+    @DisplayName("Bill Pugh Logger returns the same instance")
+    void billPughLogger_isSingleton() {
+        BillPughLogger first = BillPughLogger.getInstance();
+        BillPughLogger second = BillPughLogger.getInstance();
+
+        assertSame(first, second);
+        assertEquals(first.hashCode(), second.hashCode());
     }
-    
-    /**
-     * Tests the Bill Pugh Singleton Logger
-     */
-    private static void testBillPughLogger() {
-        System.out.println("Getting first instance...");
-        BillPughLogger logger1 = BillPughLogger.getInstance();
-        System.out.println("First instance: " + logger1);
-        
-        System.out.println("\nGetting second instance...");
-        BillPughLogger logger2 = BillPughLogger.getInstance();
-        System.out.println("Second instance: " + logger2);
-        
-        System.out.println("\nAre they the same instance? " + (logger1 == logger2));
-        System.out.println("Hash code 1: " + logger1.hashCode());
-        System.out.println("Hash code 2: " + logger2.hashCode());
-        
-        System.out.println("\nTesting logging methods:");
-        logger1.info("This is an info message from BillPughLogger");
-        logger2.warning("This is a warning message from BillPughLogger");
-    }
-    
-    /**
-     * Tests Thread Safety of the Singleton
-     * Demonstrates that multiple threads get the same instance
-     */
-    private static void testThreadSafety() {
-        System.out.println("Creating 5 threads to test thread safety...\n");
-        
-        Thread[] threads = new Thread[5];
-        
-        for (int i = 0; i < 5; i++) {
-            final int threadNumber = i + 1;
-            threads[i] = new Thread(() -> {
-                Logger logger = Logger.getInstance();
-                logger.info("Thread " + threadNumber + " - Instance: " + logger);
-                logger.info("Thread " + threadNumber + " - Hash code: " + logger.hashCode());
-            });
+
+    @Test
+    @DisplayName("All threads observe the same Logger instance (thread safety)")
+    void logger_isThreadSafe() throws InterruptedException {
+        final int threadCount = 10;
+        // A set of identity references; if the singleton holds, size must be 1.
+        final Set<Logger> instances =
+                Collections.newSetFromMap(new ConcurrentHashMap<>());
+        Thread[] threads = new Thread[threadCount];
+
+        for (int i = 0; i < threadCount; i++) {
+            threads[i] = new Thread(() -> instances.add(Logger.getInstance()));
         }
-        
-        // Start all threads
-        for (Thread thread : threads) {
-            thread.start();
+        for (Thread t : threads) {
+            t.start();
         }
-        
-        // Wait for all threads to complete
-        for (Thread thread : threads) {
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        for (Thread t : threads) {
+            t.join();
         }
-        
-        System.out.println("\nAll threads completed. All threads should have the same hash code.");
+
+        assertEquals(1, instances.size(),
+                "All threads must receive the exact same Logger instance");
     }
 }

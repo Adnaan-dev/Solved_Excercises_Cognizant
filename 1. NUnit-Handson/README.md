@@ -60,6 +60,12 @@ reducing duplicated test code and clearly documenting the scenarios covered.
 
 ## How to run
 
+The test project targets **.NET Framework 4.8 (net48)**, matching the exercise's
+".NET Framework" requirement.
+
+- In **Visual Studio**: open `NUnitHandson.sln`, build, then run via Test Explorer.
+- From the CLI (Windows, with .NET SDK + .NET Framework targeting pack):
+
 ```bash
 dotnet test "NUnitHandson.sln"
 ```

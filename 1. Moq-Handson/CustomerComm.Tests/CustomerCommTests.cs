@@ -12,8 +12,8 @@ namespace CustomerComm.Tests
     [TestFixture]
     public class CustomerCommTests
     {
-        private Mock<IMailSender> _mockMailSender = null!;
-        private CustomerCommLib.CustomerComm _customerComm = null!;
+        private Mock<IMailSender> _mockMailSender;
+        private CustomerCommLib.CustomerComm _customerComm;
 
         /// <summary>
         /// [OneTimeSetUp] runs ONCE before all tests in this fixture.

@@ -1,0 +1,40 @@
+# ===========================================================
+# .gitignore for the Solved Exercises repository
+# Covers Java (javac/Maven), C#/.NET, and common editor/OS files
+# ===========================================================
+
+# ----- Java -----
+# Compiled class files
+*.class
+# Manually compiled output folder used by VS Code's "Run Java"
+bin/
+# Maven build output
+target/
+# Gradle build output
+.gradle/
+build/
+
+# ----- C# / .NET -----
+# Build output
+[Bb]in/
+[Oo]bj/
+# Visual Studio user-specific files
+*.user
+*.suo
+.vs/
+# NuGet restored packages
+packages/
+
+# ----- Logs / temp -----
+*.log
+*.tmp
+
+# ----- Editor / IDE -----
+.vscode/
+.idea/
+*.iml
+
+# ----- OS -----
+Thumbs.db
+desktop.ini
+.DS_Store

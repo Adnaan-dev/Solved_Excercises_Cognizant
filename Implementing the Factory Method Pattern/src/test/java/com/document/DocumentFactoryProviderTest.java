@@ -1,97 +1,56 @@
 package com.document;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import com.document.factory.DocumentFactoryProvider;
 import com.document.models.Document;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 /**
- * Document Factory Provider Test
- * 
- * Tests the DocumentFactoryProvider utility class
+ * JUnit 5 tests for {@link DocumentFactoryProvider} - the static utility that
+ * creates documents by enum or by type name.
  */
-public class DocumentFactoryProviderTest {
-    
-    public static void main(String[] args) {
-        System.out.println("=".repeat(70));
-        System.out.println("FACTORY METHOD PATTERN - DOCUMENT FACTORY PROVIDER");
-        System.out.println("=".repeat(70) + "\n");
-        
-        testFactoryProvider();
-        testDynamicDocumentCreation();
-        testErrorHandling();
+class DocumentFactoryProviderTest {
+
+    @Test
+    @DisplayName("Create documents using the DocumentType enum")
+    void createByEnum_returnsCorrectDocuments() {
+        Document word = DocumentFactoryProvider.createDocument(
+                DocumentFactoryProvider.DocumentType.WORD);
+        assertNotNull(word);
+        assertEquals(".docx", word.getFileExtension());
+
+        Document pdf = DocumentFactoryProvider.createDocument(
+                DocumentFactoryProvider.DocumentType.PDF);
+        assertNotNull(pdf);
+        assertEquals(".pdf", pdf.getFileExtension());
+
+        Document excel = DocumentFactoryProvider.createDocument(
+                DocumentFactoryProvider.DocumentType.EXCEL);
+        assertNotNull(excel);
+        assertEquals(".xlsx", excel.getFileExtension());
     }
-    
-    /**
-     * Test 1: Using Factory Provider with Enum
-     */
-    private static void testFactoryProvider() {
-        System.out.println("\n### TEST 1: Using Factory Provider with Enum ###\n");
-        
-        // Create documents using enum
-        Document wordDoc = DocumentFactoryProvider.createDocument(
-            DocumentFactoryProvider.DocumentType.WORD);
-        System.out.println("Created: " + wordDoc.getDocumentType());
-        wordDoc.create();
-        wordDoc.save("sample_word");
-        System.out.println();
-        
-        Document pdfDoc = DocumentFactoryProvider.createDocument(
-            DocumentFactoryProvider.DocumentType.PDF);
-        System.out.println("Created: " + pdfDoc.getDocumentType());
-        pdfDoc.create();
-        pdfDoc.save("sample_pdf");
-        System.out.println();
-        
-        Document excelDoc = DocumentFactoryProvider.createDocument(
-            DocumentFactoryProvider.DocumentType.EXCEL);
-        System.out.println("Created: " + excelDoc.getDocumentType());
-        excelDoc.create();
-        excelDoc.save("sample_excel");
-        System.out.println();
+
+    @Test
+    @DisplayName("Create documents by type name (case-insensitive)")
+    void createByName_isCaseInsensitive() {
+        assertEquals(".docx",
+                DocumentFactoryProvider.createDocument("word").getFileExtension());
+        assertEquals(".pdf",
+                DocumentFactoryProvider.createDocument("PDF").getFileExtension());
+        assertEquals(".xlsx",
+                DocumentFactoryProvider.createDocument("Excel").getFileExtension());
     }
-    
-    /**
-     * Test 2: Dynamic Document Creation from User Input
-     */
-    private static void testDynamicDocumentCreation() {
-        System.out.println("\n### TEST 2: Dynamic Document Creation ###\n");
-        
-        String[] documentTypes = {"WORD", "PDF", "EXCEL"};
-        
-        System.out.println("Creating documents based on user input:\n");
-        
-        for (String type : documentTypes) {
-            try {
-                System.out.println("User requests: " + type);
-                Document doc = DocumentFactoryProvider.createDocument(type);
-                doc.create();
-                System.out.println("Successfully created: " + doc.getDocumentType());
-                System.out.println("File Extension: " + doc.getFileExtension());
-                System.out.println();
-            } catch (IllegalArgumentException e) {
-                System.err.println("Error: " + e.getMessage());
-            }
-        }
-    }
-    
-    /**
-     * Test 3: Error Handling
-     */
-    private static void testErrorHandling() {
-        System.out.println("\n### TEST 3: Error Handling ###\n");
-        
-        String[] invalidTypes = {"DOC", "POWERPOINT", "TXT", "JSON"};
-        
-        System.out.println("Testing error handling with invalid document types:\n");
-        
-        for (String type : invalidTypes) {
-            System.out.println("Attempting to create: " + type);
-            try {
-                Document doc = DocumentFactoryProvider.createDocument(type);
-                doc.create();
-            } catch (IllegalArgumentException e) {
-                System.out.println("✗ Error caught: " + e.getMessage());
-            }
-            System.out.println();
-        }
+
+    @Test
+    @DisplayName("An unknown type name throws IllegalArgumentException")
+    void createByName_unknownType_throws() {
+        assertThrows(IllegalArgumentException.class,
+                () -> DocumentFactoryProvider.createDocument("JSON"));
+        assertThrows(IllegalArgumentException.class,
+                () -> DocumentFactoryProvider.createDocument("POWERPOINT"));
     }
 }

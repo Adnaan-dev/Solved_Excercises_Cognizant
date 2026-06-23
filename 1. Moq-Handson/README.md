@@ -46,6 +46,12 @@ seams, which is exactly what makes Test-Driven Development fast and reliable.
 
 ## How to run
 
+The projects target **.NET Framework 4.8 (net48)**, matching the exercise's
+".NET Framework" requirement.
+
+- In **Visual Studio**: open `MoqHandson.sln`, build, then run via Test Explorer.
+- From the CLI (Windows, with .NET SDK + .NET Framework targeting pack):
+
 ```bash
 dotnet test "MoqHandson.sln"
 ```

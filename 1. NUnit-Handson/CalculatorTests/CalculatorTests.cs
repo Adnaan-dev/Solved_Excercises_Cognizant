@@ -10,7 +10,7 @@ namespace CalculatorTests
     [TestFixture]
     public class CalculatorTests
     {
-        private SimpleCalculator _calculator = null!;
+        private SimpleCalculator _calculator;
 
         /// <summary>
         /// [SetUp] runs BEFORE EACH test. Use it to initialize the object
@@ -29,7 +29,7 @@ namespace CalculatorTests
         [TearDown]
         public void Cleanup()
         {
-            _calculator = null!;
+            _calculator = null;
         }
 
         /// <summary>
