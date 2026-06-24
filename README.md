@@ -214,7 +214,7 @@ dotnet test "1. Moq-Handson/MoqHandson.sln"
 
 <div align="center">
 
-_Built as part of Cognizant training — each exercise is self-contained, documented, and runnable._
+_Built by Adnan as part of Cognizant training — each exercise is self-contained, documented, and runnable._
 
 ⭐ _Explore any folder's local `README.md` for a deeper dive into that exercise._
 
