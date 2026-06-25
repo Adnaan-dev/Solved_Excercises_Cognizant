@@ -20,7 +20,7 @@ _Database engineering · Design patterns · Algorithms · Unit testing & mocking
 
 ## 📖 Overview
 
-This repository contains **12 completed exercises** grouped into three technology
+This repository contains all **12 completed exercises** of Week 1 Cognizant DeepSkilling, grouped into three technology
 tracks. Every exercise includes a self-contained, runnable solution and inline
 documentation explaining the concepts behind it. The Java solutions are backed by
 an automated **JUnit 5** test suite (22 tests, all passing), the C# solutions use
@@ -214,7 +214,7 @@ dotnet test "1. Moq-Handson/MoqHandson.sln"
 
 <div align="center">
 
-_Built as part of Cognizant training — each exercise is self-contained, documented, and runnable._
+_Built by Adnan as part of Cognizant training — each exercise is self-contained, documented, and runnable._
 
 ⭐ _Explore any folder's local `README.md` for a deeper dive into that exercise._
 
