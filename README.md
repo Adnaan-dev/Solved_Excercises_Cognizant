@@ -2,17 +2,18 @@
 
 # 🎓 Solved Exercises — Cognizant Training
 
-### A curated collection of hands-on exercises across **SQL**, **Java**, and **C#/.NET**
+### Hands-on exercises across **SQL**, **Java**, and **C# / .NET**
 
-_Database engineering · Design patterns · Algorithms · Unit testing & mocking_
+_Database engineering · Design patterns · Algorithms · Unit testing & mocking · EF Core · ASP.NET Core Web API_
 
 ![SQL Server](https://img.shields.io/badge/SQL-T--SQL-CC2927?logo=microsoftsqlserver&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-17-007396?logo=openjdk&logoColor=white)
 ![Maven](https://img.shields.io/badge/Build-Maven-C71A36?logo=apachemaven&logoColor=white)
 ![JUnit5](https://img.shields.io/badge/Tests-JUnit%205-25A162?logo=junit5&logoColor=white)
-![.NET](https://img.shields.io/badge/.NET-Framework%204.8-512BD4?logo=dotnet&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-8.0%20%2F%20Framework%204.8-512BD4?logo=dotnet&logoColor=white)
+![EF Core](https://img.shields.io/badge/EF%20Core-8.0-512BD4)
 ![NUnit](https://img.shields.io/badge/Tests-NUnit%20%2B%20Moq-004880)
-![Tests](https://img.shields.io/badge/Java%20Tests-22%20passing-brightgreen)
+![Java Tests](https://img.shields.io/badge/Java%20Tests-22%20passing-brightgreen)
 
 </div>
 
@@ -20,17 +21,29 @@ _Database engineering · Design patterns · Algorithms · Unit testing & mocking
 
 ## 📖 Overview
 
-This repository contains all **12 completed exercises** of Week 1 Cognizant DeepSkilling, grouped into three technology
-tracks. Every exercise includes a self-contained, runnable solution and inline
-documentation explaining the concepts behind it. The Java solutions are backed by
-an automated **JUnit 5** test suite (22 tests, all passing), the C# solutions use
-**NUnit + Moq**, and the SQL solutions are written in **T-SQL (Microsoft SQL Server)**.
+This repository collects the completed **Cognizant DeepSkilling** exercises, organised
+into three weekly tracks. Every exercise is a **self-contained, runnable solution** with
+inline documentation explaining the concept behind it.
 
-| Track | Exercises | Tooling |
-|-------|:---------:|---------|
-| 🗄️ **SQL** | 6 | T-SQL · SSMS |
-| ☕ **Java** | 4 | Java 17 · Maven · JUnit 5 |
-| 🟣 **C# / .NET** | 2 | .NET Framework 4.8 · NUnit · Moq |
+- **Week 1** — SQL fundamentals (T-SQL), core Java (algorithms, recursion, design
+  patterns) backed by a **JUnit 5** suite, and C# unit-testing basics with **NUnit + Moq**.
+- **Week 2** — **Entity Framework Core 8.0** (a full ORM + CRUD + LINQ console app) and a
+  six-part **ASP.NET Core 8.0 Web API** hands-on series ending in a Kafka chat app.
+- **Week 3** — a further **ASP.NET Core 8.0 Web API** set (see the note below).
+
+| Week | Track | Content | Tooling |
+|:---:|-------|---------|---------|
+| 1 | 🗄️ SQL | 6 exercises | T-SQL · SSMS |
+| 1 | ☕ Java | 4 Maven projects (22 JUnit 5 tests) | Java 17 · Maven · JUnit 5 |
+| 1 | 🟣 C# | 2 hands-on (NUnit, Moq) | .NET Framework 4.8 · NUnit · Moq |
+| 2 | 🟣 EF Core | 1 console app (7 labs) | .NET 8 · EF Core 8 · SQL Server |
+| 2 | 🟣 Web API | 6 hands-on projects | .NET 8 · Swagger · JWT · Kafka |
+| 3 | 🟣 Web API | 6 hands-on projects | .NET 8 · Swagger · JWT · Kafka |
+
+> ℹ️ **Repository note:** the `Week 3/ASP.NET Core 8.0 Web API` folder is currently an
+> exact copy of `Week 2/ASP.NET Core 8.0 Web API` (verified identical, file-for-file).
+> If Week 3 is meant to hold different material, replace its contents; otherwise one of
+> the two copies can be removed. Kept as-is here pending that decision.
 
 ---
 
@@ -39,86 +52,62 @@ an automated **JUnit 5** test suite (22 tests, all passing), the C# solutions us
 ```
 Solved_Excercises_Cognizant/
 │
-├── 🗄️  SQL Exercise - Index/                  # Non-clustered, clustered & composite indexes
-├── 🗄️  Create a Stored Procedure/             # Retrieve + insert stored procedures
-├── 🗄️  Return Data from a Stored Procedure/   # Count employees by department
-├── 🗄️  Execute a Stored Procedure/            # Invoke a procedure with parameters
-├── 🗄️  Return Data from a Scalar Function/    # Annual salary scalar function
-├── 🗄️  Ranking and Window Functions/          # ROW_NUMBER, RANK, DENSE_RANK, PARTITION BY
+├── Week 1/
+│   ├── 🗄️ SQL Exercise - Index/                   # Non-clustered, clustered & composite indexes
+│   ├── 🗄️ Create a Stored Procedure/              # Retrieve + insert stored procedures
+│   ├── 🗄️ Return Data from a Stored Procedure/    # Count employees by department
+│   ├── 🗄️ Execute a Stored Procedure/             # Invoke a procedure with parameters
+│   ├── 🗄️ Return Data from a Scalar Function/     # Annual salary scalar function
+│   ├── 🗄️ Ranking and Window Functions/           # ROW_NUMBER, RANK, DENSE_RANK, PARTITION BY
+│   │
+│   ├── ☕ E-commerce Platform Search Function/     # Linear vs binary search  (Maven · JUnit)
+│   ├── ☕ Financial Forecasting/                   # Recursion & memoization  (Maven · JUnit)
+│   ├── ☕ Implementing the Factory Method Pattern/ # Creational design pattern (Maven · JUnit)
+│   ├── ☕ Implementing the Singleton Pattern/      # Creational design pattern (Maven · JUnit)
+│   │
+│   ├── 🟣 1. NUnit-Handson/                        # Unit testing fundamentals (NUnit)
+│   └── 🟣 1. Moq-Handson/                          # Mocking & dependency injection (Moq)
 │
-├── ☕  E-commerce Platform Search Function/    # Linear vs binary search  (Maven · JUnit)
-├── ☕  Financial Forecasting/                  # Recursion & memoization  (Maven · JUnit)
-├── ☕  Implementing the Factory Method Pattern/# Creational design pattern (Maven · JUnit)
-├── ☕  Implementing the Singleton Pattern/     # Creational design pattern (Maven · JUnit)
+├── Week 2/
+│   ├── 🟣 Entity Framework Core 8.0/               # RetailInventory console app (7 EF Core labs)
+│   └── 🟣 ASP.NET Core 8.0 Web API/                # 6 Web API hands-on (Swagger, filters, JWT, Kafka)
 │
-├── 🟣  1. NUnit-Handson/                       # Unit testing fundamentals (NUnit)
-├── 🟣  1. Moq-Handson/                         # Mocking & dependency injection (Moq)
+├── Week 3/
+│   └── 🟣 ASP.NET Core 8.0 Web API/                # 6 Web API hands-on (currently mirrors Week 2)
 │
+├── .github/
 └── .gitignore
 ```
 
-> Each Java/C# folder follows the standard `src/main` + `src/test` layout and ships
-> with its own build file (`pom.xml` or `.sln`/`.csproj`) and a local `README.md`.
+> Each Java/C# folder follows the standard layout and ships with its own build file
+> (`pom.xml`, `.sln` or `.csproj`) and a local `README.md` with a deeper walkthrough.
 
 ---
 
-## 🗄️ SQL Track
+## 🗄️ Week 1 · SQL Track
 
 > **Dialect:** T-SQL (Microsoft SQL Server). Run the `.sql` files in **SQL Server
-> Management Studio (SSMS)** or Azure Data Studio. Each script is self-contained —
-> it creates its own schema and sample data before the exercise.
+> Management Studio (SSMS)** or Azure Data Studio. Each script is self-contained — it
+> creates its own schema and sample data before the exercise.
 
-### 1. SQL Exercise — Index
-**Goal:** Improve query performance with indexes and compare execution before/after.
-
-| Sub-exercise | Concept | What the solution does |
-|---|---|---|
-| Non-clustered index | `CREATE NONCLUSTERED INDEX` | Indexes `Products.ProductName`; turns a table scan into an index seek |
-| Clustered index | `CREATE CLUSTERED INDEX` | Re-clusters `Orders` on `OrderDate` — correctly drops the FK + clustered PK, recreates the PK as **nonclustered**, then restores the FK |
-| Composite index | multi-column index | Indexes `Orders(CustomerID, OrderDate)` so a two-predicate query seeks in one operation |
-
-`SET STATISTICS TIME/IO ON` is used throughout so the scan-vs-seek improvement is measurable.
-📄 [`SQL_Exercise_Index.sql`](./SQL%20Exercise%20-%20Index/SQL_Exercise_Index.sql)
-
-### 2. Create a Stored Procedure
-**Goal:** Build procedures to **retrieve** and **insert** employee data.
-Implements `sp_GetEmployeesByDepartment` (parameterised, joined to `Departments`) and
-`sp_InsertEmployee`, with usage examples.
-📄 [`employee_management_procedures.sql`](./Create%20a%20Stored%20Procedure/employee_management_procedures.sql)
-
-### 3. Return Data from a Stored Procedure
-**Goal:** Return the total number of employees in a department.
-`sp_GetEmployeeCountByDepartment @DepartmentID` returns a `COUNT(*)` result set.
-📄 [`Return_Data_Stored_Procedure.sql`](./Return%20Data%20from%20a%20Stored%20Procedure/Return_Data_Stored_Procedure.sql)
-
-### 4. Execute a Stored Procedure
-**Goal:** Execute a procedure and review the results.
-Defines `sp_GetEmployeesByDepartment` and demonstrates **named** and **positional**
-execution syntax.
-📄 [`Execute_Stored_Procedure.sql`](./Execute%20a%20Stored%20Procedure/Execute_Stored_Procedure.sql)
-
-### 5. Return Data from a Scalar Function
-**Goal:** Return the annual salary for a specific employee.
-`fn_CalculateAnnualSalary(@EmployeeID)` returns `Salary * 12` (e.g. employee 1 → **60000.00**),
-shown both standalone and joined with employee details.
-📄 [`Return_Data_Scalar_Function.sql`](./Return%20Data%20from%20a%20Scalar%20Function/Return_Data_Scalar_Function.sql)
-
-### 6. Ranking and Window Functions
-**Goal:** Rank rows within groups using window functions.
-Demonstrates `ROW_NUMBER()`, `RANK()`, and `DENSE_RANK()` with `OVER (PARTITION BY …)`,
-and solves *"top 3 most expensive products per category"* via a CTE — with a side-by-side
-comparison of how each function treats ties.
-📄 [`ranking_window_functions.sql`](./Ranking%20and%20Window%20Functions/ranking_window_functions.sql)
+| # | Exercise | Concepts |
+|:-:|----------|----------|
+| 1 | **SQL Exercise — Index** | Non-clustered, clustered (drops FK + clustered PK, recreates PK as nonclustered, restores FK) and composite indexes; scan → seek comparison with `SET STATISTICS TIME/IO` |
+| 2 | **Create a Stored Procedure** | `sp_GetEmployeesByDepartment` (parameterised, joined) + `sp_InsertEmployee` |
+| 3 | **Return Data from a Stored Procedure** | `sp_GetEmployeeCountByDepartment` returns a `COUNT(*)` result set |
+| 4 | **Execute a Stored Procedure** | Named vs positional execution syntax |
+| 5 | **Return Data from a Scalar Function** | `fn_CalculateAnnualSalary` → `Salary * 12` (employee 1 → 60000.00) |
+| 6 | **Ranking and Window Functions** | `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()` with `OVER (PARTITION BY …)`; "top 3 per category" via a CTE |
 
 ---
 
-## ☕ Java Track
+## ☕ Week 1 · Java Track
 
 > **Build & test:** Java 17 + Maven. Each folder is an independent Maven project.
 > From inside any Java folder run `mvn test`.
 
 | Exercise | Focus | Key Concepts | Tests |
-|---|---|---|:---:|
+|----------|-------|--------------|:-----:|
 | **E-commerce Platform Search Function** | Algorithms | Linear `O(n)` vs Binary `O(log n)` search, case-insensitive matching, comparison counting | ✅ 6 |
 | **Financial Forecasting** | Recursion | Recursive future-value, variable growth rates, **memoization** vs naïve trend | ✅ 5 |
 | **Implementing the Factory Method Pattern** | Design Pattern | Abstract factory method, concrete factories (Word/PDF/Excel), provider with enum + error handling | ✅ 7 |
@@ -126,34 +115,55 @@ comparison of how each function treats ties.
 
 <div align="center"><strong>Total: 22 JUnit 5 tests — all passing ✅</strong></div>
 
-Each project keeps its runnable demo (`*Demo` / `*Application`) **and** a proper
-assertion-based JUnit test class, so reviewers can see both the behaviour and its verification.
+---
+
+## 🟣 Week 1 · C# / .NET Track
+
+> **Framework:** .NET Framework 4.8. Open the `.sln` in **Visual Studio** and run via
+> Test Explorer, or use `dotnet test` (with the .NET SDK + .NET Framework 4.8 targeting pack).
+
+- **1. NUnit Hands-on** — first unit tests for `SimpleCalculator`. Demonstrates
+  `[TestFixture]`, `[SetUp]`/`[TearDown]`, parameterised `[TestCase]`, `[Ignore]`, and
+  `Assert.That(actual, Is.EqualTo(expected))`.
+- **1. Moq Hands-on** — making untestable SMTP mail code testable via
+  **dependency injection + mocking**: an `IMailSender` abstraction, constructor
+  injection into `CustomerComm`, and a **Moq** mock (`It.IsAny<string>()`) in the tests.
 
 ---
 
-## 🟣 C# / .NET Track
+## 🟣 Week 2 · Entity Framework Core 8.0
 
-> **Framework:** .NET Framework 4.8. Open the `.sln` in **Visual Studio** and run via
-> Test Explorer, or use `dotnet test` (Windows + .NET Framework targeting pack).
+A single .NET 8 console app (`RetailInventory`) covering seven guided EF Core labs:
 
-### 1. NUnit Hands-on
-**Goal:** Write your first unit tests for a calculator's addition operation.
-- `CalcLibrary` — the unit under test (`SimpleCalculator`).
-- `CalculatorTests` — uses `[TestFixture]`, `[SetUp]`, `[TearDown]`, parameterised
-  `[TestCase]`, `[Ignore]`, and `Assert.That(actual, Is.EqualTo(expected))`.
-- Covers unit vs functional testing, testing types, and loosely-coupled/testable design.
+1. **ORM concepts** and EF Core vs EF6.
+2. **Models + `DbContext`** (`Product`, `Category`; SQL Server provider via `appsettings.json`).
+3. **CLI migrations** (`dotnet ef migrations add` / `database update`) with a design-time factory.
+4. **Insert** — `AddRangeAsync` + `SaveChangesAsync` (idempotent seed).
+5. **Retrieve** — `ToListAsync`, `FindAsync`, `FirstOrDefaultAsync`.
+6. **Update / Delete** — modify a tracked entity, then `Remove`.
+7. **LINQ** — `Where` + `OrderByDescending`, and `Select` projection into a DTO.
 
-📁 [`1. NUnit-Handson`](./1.%20NUnit-Handson/) · [details](./1.%20NUnit-Handson/README.md)
+📁 `Week 2/Entity Framework Core 8.0/` · see its local `README.md` for the full lab notes.
 
-### 2. Moq Hands-on
-**Goal:** Make untestable mail-server code testable using **dependency injection + mocking**.
-- `CustomerCommLib` — `IMailSender` abstraction, real `MailSender` (SMTP, not testable),
-  and `CustomerComm` which receives `IMailSender` via **constructor injection**.
-- `CustomerComm.Tests` — mocks `IMailSender` with **Moq** (`It.IsAny<string>()` → `true`),
-  using `[TestFixture]`, `[OneTimeSetUp]`, `[TestCase]`, then asserts the result is `true`.
-- Covers mocking/isolation, stub vs fake vs mock, DI, and the TDD advantage.
+---
 
-📁 [`1. Moq-Handson`](./1.%20Moq-Handson/) · [details](./1.%20Moq-Handson/README.md)
+## 🟣 Week 2 & 3 · ASP.NET Core 8.0 Web API
+
+Six hands-on projects that build a Web API from scratch on **.NET 8** (modern minimal
+hosting model), each self-contained and runnable:
+
+| # | Project | Topic |
+|:-:|---------|-------|
+| 1 | `FirstWebApi` | Controllers, action verbs, status codes, config files |
+| 2 | `WebApiSwagger` | Swagger/OpenAPI, `ProducesResponseType`, `[Route("Emp")]` |
+| 3 | `WebApiCustomModel` | Custom `Employee` model, `[FromBody]`, custom auth + exception filters |
+| 4 | `WebApiCrud` | Full CRUD — PUT update with id validation |
+| 5 | `WebApiJwt` | JWT bearer auth, role-based `[Authorize]`, CORS, token expiry |
+| 6 | `KafkaChat` | Apache Kafka chat console (producer + consumer) |
+
+📁 `Week 2/ASP.NET Core 8.0 Web API/` (Week 3 currently holds an identical copy — see the
+repository note above). Each folder has its own `README.md` with concept notes and
+Swagger/Postman testing steps.
 
 ---
 
@@ -185,11 +195,21 @@ Requires **JDK 17+** and **Maven 3.9+**.
 <summary><strong>🟣 C# / .NET exercises</strong></summary>
 
 ```bash
-# Visual Studio: open the .sln, build, run Test Explorer.
-# Or via CLI on Windows (with the .NET SDK + .NET Framework 4.8 targeting pack):
-dotnet test "1. NUnit-Handson/NUnitHandson.sln"
-dotnet test "1. Moq-Handson/MoqHandson.sln"
+# Week 1 (net48): open the .sln in Visual Studio, or on Windows with the SDK:
+dotnet test "Week 1/1. NUnit-Handson/NUnitHandson.sln"
+dotnet test "Week 1/1. Moq-Handson/MoqHandson.sln"
+
+# Week 2 EF Core (net8.0):
+cd "Week 2/Entity Framework Core 8.0/RetailInventory"
+dotnet ef database update   # optional: create the schema (needs SQL Server / LocalDB)
+dotnet run
+
+# Web API (net8.0): from any handson folder
+cd "Week 2/ASP.NET Core 8.0 Web API/1. WebApi_Handson"
+dotnet run                  # Swagger UI at https://localhost:<port>/swagger (ex. 2–5)
 ```
+Requires the **.NET 8 SDK**. EF Core needs a reachable **SQL Server** (default:
+`(localdb)\MSSQLLocalDB`); Web API exercise 6 needs a local **Kafka** broker.
 
 </details>
 
@@ -197,18 +217,25 @@ dotnet test "1. Moq-Handson/MoqHandson.sln"
 
 ## ✅ Verification Status
 
-| Track | Verified | Method |
-|-------|----------|--------|
-| Java | ✅ All 22 tests pass | `mvn test` executed locally (JDK 17, Maven 3.9) |
-| SQL | ✅ Reviewed | T-SQL inspected for correctness; run in SSMS to execute |
-| C#/.NET | ⚙️ Inspected | Standard NUnit/Moq on net48; build in Visual Studio to run |
+| Track | Status | Method |
+|-------|--------|--------|
+| Java (Week 1) | ✅ 22/22 tests pass | `mvn test` run locally (JDK 17, Maven 3.9): 6 + 5 + 7 + 4, all BUILD SUCCESS |
+| SQL (Week 1) | ✅ Reviewed | T-SQL inspected for correctness; run in SSMS to execute |
+| C# (Week 1, net48) | ⚙️ Inspected | NUnit/Moq reviewed; build in Visual Studio / with the .NET SDK to run |
+| EF Core (Week 2, net8.0) | ⚙️ Inspected | Code reviewed against the labs; run locally with the .NET 8 SDK + SQL Server |
+| Web API (Week 2/3, net8.0) | ⚙️ Inspected | Code reviewed; run locally with the .NET 8 SDK |
+
+> The .NET projects were reviewed by reading only — the environment used here has the
+> .NET **runtime** but no **SDK**, so `dotnet build`/`test` could not be executed. Build
+> them locally with the .NET 8 SDK (and the .NET Framework 4.8 targeting pack for Week 1).
 
 ---
 
 ## 🛠️ Tech Stack
 
 `T-SQL` · `Microsoft SQL Server` · `Java 17` · `Maven` · `JUnit 5` ·
-`C#` · `.NET Framework 4.8` · `NUnit` · `Moq`
+`C#` · `.NET Framework 4.8` · `.NET 8` · `NUnit` · `Moq` · `EF Core 8` ·
+`ASP.NET Core` · `Swagger / Swashbuckle` · `JWT` · `Confluent.Kafka`
 
 ---
 

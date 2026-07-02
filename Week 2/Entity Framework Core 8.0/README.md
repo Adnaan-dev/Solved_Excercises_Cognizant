@@ -5,7 +5,7 @@ seven EF Core 8.0 guided hands-on labs: ORM concepts, the `DbContext`, CLI
 migrations, and full CRUD + LINQ against a SQL Server database.
 
 ```
-Entity Framework Core 8.0 - W2/
+Entity Framework Core 8.0/
 └── RetailInventory/
     ├── RetailInventory.csproj      # net8.0 + EF Core 8.0.6 packages (Lab 1 )
     ├── appsettings.json            # SQL Server connection string (Lab 2 )
@@ -98,7 +98,7 @@ Requires the **.NET 8 SDK** and a reachable **SQL Server** instance (the default
 connection string targets `(localdb)\MSSQLLocalDB`).
 
 ```bash
-cd "Entity Framework Core 8.0 - W2/RetailInventory"
+cd "Entity Framework Core 8.0/RetailInventory"
 
 # optional: create the schema via migrations (Lab 3)
 dotnet ef migrations add InitialCreate
