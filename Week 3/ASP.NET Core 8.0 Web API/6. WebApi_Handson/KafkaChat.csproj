@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>KafkaChat</RootNamespace>
+    <AssemblyName>KafkaChat</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Official .NET client for Apache Kafka, maintained by Confluent. -->
+    <PackageReference Include="Confluent.Kafka" Version="2.5.3" />
+  </ItemGroup>
+
+</Project>
