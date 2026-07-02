@@ -29,7 +29,7 @@ inline documentation explaining the concept behind it.
   patterns) backed by a **JUnit 5** suite, and C# unit-testing basics with **NUnit + Moq**.
 - **Week 2** — **Entity Framework Core 8.0** (a full ORM + CRUD + LINQ console app) and a
   six-part **ASP.NET Core 8.0 Web API** hands-on series ending in a Kafka chat app.
-- **Week 3** — a further **ASP.NET Core 8.0 Web API** set (see the note below).
+- **Week 3** — a further **ASP.NET Core 8.0 Web API** set.
 
 | Week | Track | Content | Tooling |
 |:---:|-------|---------|---------|
@@ -40,10 +40,7 @@ inline documentation explaining the concept behind it.
 | 2 | 🟣 Web API | 6 hands-on projects | .NET 8 · Swagger · JWT · Kafka |
 | 3 | 🟣 Web API | 6 hands-on projects | .NET 8 · Swagger · JWT · Kafka |
 
-> ℹ️ **Repository note:** the `Week 3/ASP.NET Core 8.0 Web API` folder is currently an
-> exact copy of `Week 2/ASP.NET Core 8.0 Web API` (verified identical, file-for-file).
-> If Week 3 is meant to hold different material, replace its contents; otherwise one of
-> the two copies can be removed. Kept as-is here pending that decision.
+
 
 ---
 
