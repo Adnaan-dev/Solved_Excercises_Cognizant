@@ -1,0 +1,13 @@
+.App {
+  padding: 20px 40px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+th,
+td {
+  text-align: left;
+}

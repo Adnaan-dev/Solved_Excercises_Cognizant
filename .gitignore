@@ -25,6 +25,18 @@ build/
 # NuGet restored packages
 packages/
 
+# ----- Node / React -----
+# Installed npm packages
+node_modules/
+# React production build output
+/**/build/
+# npm/yarn debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Optional npm cache directory
+.npm/
+
 # ----- Logs / temp -----
 *.log
 *.tmp

@@ -1,0 +1,18 @@
+.App {
+  padding: 20px 40px;
+}
+
+/* Conditional colour classes for the Rent value:
+   textRed  -> Rent is 60000 or below
+   textGreen-> Rent is above 60000 */
+.textRed {
+  color: red;
+}
+
+.textGreen {
+  color: green;
+}
+
+.office-card {
+  margin-bottom: 30px;
+}

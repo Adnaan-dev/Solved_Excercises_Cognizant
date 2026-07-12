@@ -1,0 +1,40 @@
+.App {
+  display: flex;
+  padding: 30px 40px;
+  gap: 0;
+}
+
+/* Each of the three columns takes an equal share of the width. */
+.column {
+  flex: 1;
+  padding: 0 28px;
+}
+
+/* Green vertical separators between the columns (2nd and 3rd columns get a
+   left border), matching the screenshot. */
+.column + .column {
+  border-left: 3px solid #1a9e1a;
+}
+
+/* Headings styling to resemble the screenshot. */
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  margin-bottom: 4px;
+}
+
+h3 {
+  margin-bottom: 4px;
+}
+
+h4 {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}

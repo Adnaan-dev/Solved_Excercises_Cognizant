@@ -1,0 +1,19 @@
+/* CSS Module for the CohortDetails component.
+   Class names here are locally scoped and imported as `styles` in the JS. */
+
+.box {
+  width: 300px;
+  display: inline-block;
+  margin: 10px;                 /* overall 10px margin */
+  padding: 10px 20px;           /* 10px top/bottom, 20px left/right */
+  border: 1px solid black;      /* 1px solid black border */
+  border-radius: 10px;          /* rounded corners */
+  vertical-align: top;
+}
+
+/* Tag selector for <dt> elements, scoped within .box.
+   (CRA CSS Modules require selectors to include a local class/id, so the bare
+   `dt { }` tag selector is nested under .box while still targeting <dt>.) */
+.box dt {
+  font-weight: 500;
+}

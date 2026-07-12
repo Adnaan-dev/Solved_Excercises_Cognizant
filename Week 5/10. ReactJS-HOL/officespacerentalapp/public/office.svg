@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#e9edf2"/>
+  <rect x="30" y="40" width="340" height="220" fill="#ffffff" stroke="#c3cbd6" stroke-width="2"/>
+  <!-- windows -->
+  <rect x="50" y="60" width="90" height="70" fill="#cfe3f2"/>
+  <rect x="155" y="60" width="90" height="70" fill="#cfe3f2"/>
+  <rect x="260" y="60" width="90" height="70" fill="#cfe3f2"/>
+  <!-- desk -->
+  <rect x="120" y="180" width="160" height="20" rx="4" fill="#8a94a6"/>
+  <rect x="135" y="200" width="12" height="45" fill="#6b7280"/>
+  <rect x="253" y="200" width="12" height="45" fill="#6b7280"/>
+  <!-- chairs -->
+  <circle cx="110" cy="215" r="16" fill="#4b5563"/>
+  <circle cx="290" cy="215" r="16" fill="#4b5563"/>
+  <!-- plant -->
+  <rect x="330" y="200" width="20" height="30" fill="#9ca3af"/>
+  <circle cx="340" cy="195" r="16" fill="#4caf7d"/>
+  <text x="200" y="320" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#374151" text-anchor="middle">Office Space</text>
+</svg>

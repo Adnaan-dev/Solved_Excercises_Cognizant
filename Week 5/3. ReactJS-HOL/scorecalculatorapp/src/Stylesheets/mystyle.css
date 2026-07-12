@@ -1,0 +1,39 @@
+/* Styles applied to the CalculateScore component via className. */
+
+.scorecard {
+  width: 350px;
+  margin: 40px auto;
+  padding: 20px 25px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.title {
+  color: #2c3e50;
+  text-align: center;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 8px;
+}
+
+.detail {
+  font-size: 16px;
+  margin: 6px 0;
+  color: #333;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.average {
+  margin-top: 12px;
+  padding: 8px;
+  background-color: #eafaf1;
+  border-radius: 6px;
+  color: #1e8449;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
