@@ -1,0 +1,11 @@
+<!-- Hands-On 1, Task 2, step 7: portal name + placeholder nav links -->
+<nav class="navbar">
+  <a class="brand" routerLink="/">🎓 Student Course Portal</a>
+  <ul class="nav-links">
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+    <li><a routerLink="/courses" routerLinkActive="active">Courses</a></li>
+    <li><a routerLink="/enroll" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Enroll</a></li>
+    <li><a routerLink="/enroll/reactive" routerLinkActive="active">Enroll (Reactive)</a></li>
+    <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+  </ul>
+</nav>

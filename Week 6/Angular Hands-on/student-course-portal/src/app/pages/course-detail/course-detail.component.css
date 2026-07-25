@@ -1,0 +1,33 @@
+.back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.detail-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  max-width: 420px;
+}
+
+.detail-card h2 {
+  color: #1e3a8a;
+  margin-top: 0;
+}
+
+.code {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.id {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.empty {
+  color: #991b1b;
+}

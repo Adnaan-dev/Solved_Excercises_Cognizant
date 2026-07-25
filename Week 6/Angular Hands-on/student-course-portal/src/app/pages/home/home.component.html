@@ -1,0 +1,39 @@
+<!-- Hands-On 1 & 2: Home / Dashboard -->
+<section class="hero">
+  <!-- interpolation (one-way, component -> DOM) -->
+  <h1>Welcome to the {{ portalName }}</h1>
+  <p class="lead">
+    Browse and enroll in courses, track your grades, and manage your student profile — all
+    in one place. This portal is built incrementally across the Angular hands-on exercises.
+  </p>
+
+  <!-- stats row (hardcoded values surfaced from the component) -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <span class="stat-value">{{ coursesAvailable }}</span>
+      <span class="stat-label">Courses Available</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ enrolled }}</span>
+      <span class="stat-label">Enrolled</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ gpa }}</span>
+      <span class="stat-label">GPA</span>
+    </div>
+  </div>
+
+  <!-- Hands-On 2, Task 1: binding demonstrations -->
+  <div class="binding-demo">
+    <!-- event binding + property binding (disabled controlled by isPortalActive) -->
+    <button class="btn" [disabled]="!isPortalActive" (click)="onEnrollClick()">Enroll Now</button>
+    <p *ngIf="message" class="message">{{ message }}</p>
+
+    <!-- two-way binding with ngModel -->
+    <label class="search-label">
+      Search courses:
+      <input type="text" [(ngModel)]="searchTerm" placeholder="e.g. angular" />
+    </label>
+    <p>Searching for: {{ searchTerm }}</p>
+  </div>
+</section>

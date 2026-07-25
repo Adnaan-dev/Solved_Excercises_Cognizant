@@ -1,0 +1,23 @@
+<!-- Student profile page (Hands-On 6) -->
+<h2>Student Profile</h2>
+
+<section class="profile-card">
+  <p><strong>Name:</strong> Alex Johnson</p>
+  <p><strong>Program:</strong> B.Tech Computer Science</p>
+  <p><strong>GPA:</strong> 3.8</p>
+</section>
+
+<h3>Enrolled Courses</h3>
+<ng-container *ngIf="enrolledCourses$ | async as enrolledCourses">
+  <ul class="enrolled-list" *ngIf="enrolledCourses.length; else none">
+    <li *ngFor="let course of enrolledCourses">
+      {{ course.name }} <span class="code">({{ course.code }})</span>
+    </li>
+  </ul>
+  <ng-template #none>
+    <p class="empty">You are not enrolled in any courses yet. Visit the Courses page to enroll.</p>
+  </ng-template>
+</ng-container>
+
+<!-- Hands-On 6, Task 2, step 67: component with a component-level provided service -->
+<app-notification></app-notification>

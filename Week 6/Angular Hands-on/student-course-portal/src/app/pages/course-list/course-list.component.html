@@ -1,0 +1,50 @@
+<!-- Hands-On 9: courses list driven by the NgRx store (async pipe everywhere) -->
+<h2>Courses</h2>
+
+<!-- Hands-On 6, Task 1, step 62: a second component reading the same service instance -->
+<app-course-summary-widget></app-course-summary-widget>
+
+<!-- Hands-On 7, Task 1, step 71: search box writes ?search= to the URL -->
+<div class="search-bar">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (input)="onSearch()"
+    placeholder="Search courses by name or code…"
+  />
+</div>
+
+<!-- loading + error come from store selectors -->
+<p *ngIf="loading$ | async" class="loading">Loading courses...</p>
+<p *ngIf="error$ | async as error" class="empty">{{ error }}</p>
+
+<!-- course grid from the store; *ngIf else for the empty case -->
+<ng-container *ngIf="filteredCourses$ | async as courses">
+  <div class="course-grid" *ngIf="courses.length; else noCourses">
+    <div
+      class="card-wrapper"
+      *ngFor="let course of courses; let i = index; trackBy: trackByCourseId"
+    >
+      <app-course-card
+        [course]="course"
+        appHighlight="lightblue"
+        (enrollRequested)="onEnroll($event)"
+      ></app-course-card>
+      <button class="view-btn" (click)="goToDetail(course.id)">View Details →</button>
+    </div>
+  </div>
+
+  <ng-template #noCourses>
+    <p class="empty" *ngIf="!(loading$ | async)">No courses available.</p>
+  </ng-template>
+</ng-container>
+
+<p *ngIf="selectedCourseId" class="selected">Selected course ID: {{ selectedCourseId }}</p>
+
+<!-- Hands-On 8, Task 2: students loaded via switchMap for the selected course -->
+<div *ngIf="students.length" class="students">
+  <h4>Students in the selected course</h4>
+  <ul>
+    <li *ngFor="let s of students">{{ s.name }} — {{ s.email }}</li>
+  </ul>
+</div>

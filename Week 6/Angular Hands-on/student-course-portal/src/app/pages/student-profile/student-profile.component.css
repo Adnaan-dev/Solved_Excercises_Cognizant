@@ -1,0 +1,27 @@
+.profile-card {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  margin-bottom: 1.5rem;
+  max-width: 420px;
+}
+
+.profile-card p {
+  margin: 0.3rem 0;
+  color: #334155;
+}
+
+.enrolled-list {
+  padding-left: 1.2rem;
+}
+
+.enrolled-list .code {
+  color: #2563eb;
+  font-size: 0.85rem;
+}
+
+.empty {
+  color: #64748b;
+  font-style: italic;
+}

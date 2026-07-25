@@ -1,0 +1,62 @@
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.selected {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: #dbeafe;
+  border-left: 4px solid #2563eb;
+  border-radius: 6px;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+.loading {
+  color: #64748b;
+  font-style: italic;
+}
+
+.empty {
+  color: #991b1b;
+  background: #fee2e2;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+}
+
+.search-bar {
+  margin: 0.5rem 0 1rem;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 360px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.view-btn {
+  align-self: flex-start;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+  background: transparent;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: #2563eb;
+  color: #fff;
+}

@@ -1,0 +1,11 @@
+<section class="notifications">
+  <h4>Notifications (component-scoped service)</h4>
+  <div class="notif-actions">
+    <button (click)="notify()">Add notification</button>
+    <button class="ghost" (click)="clear()">Clear</button>
+  </div>
+  <ul>
+    <li *ngFor="let m of messages">{{ m }}</li>
+  </ul>
+  <p *ngIf="!messages.length" class="empty">No notifications.</p>
+</section>

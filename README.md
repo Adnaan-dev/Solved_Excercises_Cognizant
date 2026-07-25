@@ -2,9 +2,9 @@
 
 # 🎓 Solved Exercises — Cognizant Training
 
-### Hands-on exercises across **SQL**, **Java**, **C# / .NET**, and **React**
+### Hands-on exercises across **SQL**, **Java**, **C# / .NET**, **React**, **Git**, and **Angular**
 
-_Database engineering · Design patterns · Algorithms · Unit testing & mocking · EF Core · ASP.NET Core Web API · JWT microservices · React SPA_
+_Database engineering · Design patterns · Algorithms · Unit testing & mocking · EF Core · ASP.NET Core Web API · JWT microservices · React SPA · Git workflows · Angular SPA (NgRx)_
 
 ![SQL Server](https://img.shields.io/badge/SQL-T--SQL-CC2927?logo=microsoftsqlserver&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-17-007396?logo=openjdk&logoColor=white)
@@ -14,7 +14,11 @@ _Database engineering · Design patterns · Algorithms · Unit testing & mocking
 ![EF Core](https://img.shields.io/badge/EF%20Core-8.0-512BD4)
 ![NUnit](https://img.shields.io/badge/Tests-NUnit%20%2B%20Moq-004880)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
+![Git](https://img.shields.io/badge/Git-2.49-F05032?logo=git&logoColor=white)
+![Angular](https://img.shields.io/badge/Angular-20-DD0031?logo=angular&logoColor=white)
+![NgRx](https://img.shields.io/badge/NgRx-20-BA2BD2)
 ![Java Tests](https://img.shields.io/badge/Java%20Tests-22%20passing-brightgreen)
+![Angular Tests](https://img.shields.io/badge/Angular%20Tests-40%20passing-brightgreen)
 
 </div>
 
@@ -36,6 +40,9 @@ inline documentation explaining the concept behind it.
   `[Authorize]`, config-driven signing key).
 - **Week 5** — a **React 18** hands-on lab series (SPA fundamentals, components, life
   cycle, styling, ES6, JSX, events, conditional rendering, lists & keys).
+- **Week 6** — **Git** (5 hands-on labs: config & first commit, `.gitignore`, branching &
+  merging, conflict resolution, push-back-to-remote) plus a **10-exercise Angular v20**
+  build of a **Student Course Portal** SPA (components → forms → routing → HTTP → NgRx → tests).
 
 | Week | Track | Content | Tooling |
 |:---:|-------|---------|---------|
@@ -47,6 +54,8 @@ inline documentation explaining the concept behind it.
 | 3 | 🟣 Web API | 6 hands-on projects | .NET 8 · Swagger · JWT · Kafka |
 | 4 | 🟣 Microservices | 1 JWT microservice | .NET 8 · JWT bearer auth |
 | 5 | ⚛️ React | 10 hands-on labs | React 18 · Node · npm |
+| 6 | 🔀 Git | 5 hands-on labs | Git 2.49 · Git Bash |
+| 6 | ⚛️ Angular | 1 portal (10 hands-on) | Angular 20 · NgRx · JSON Server · Karma |
 
 
 
@@ -94,6 +103,14 @@ Solved_Excercises_Cognizant/
 │   ├── ⚛️ 11. ReactJS-HOL/ (eventexamplesapp)      # Event handling + currency converter
 │   ├── ⚛️ 12. ReactJS-HOL/ (ticketbookingapp)      # Conditional rendering
 │   └── ⚛️ 13. ReactJS-HOL/ (bloggerapp)            # Conditional rendering, lists & keys
+│
+├── Week 6/
+│   ├── 🔀 1. Git-HOL/                              # Git config, Notepad++ editor, first commit (GitDemo)
+│   ├── 🔀 2. Git-HOL/                              # .gitignore — ignore *.log files & log/ folder
+│   ├── 🔀 3. Git-HOL/                              # Branching & merging (GitNewBranch → master)
+│   ├── 🔀 4. Git-HOL/                              # Merge-conflict resolution (3-way / P4Merge)
+│   ├── 🔀 5. Git-HOL/                              # Clean up & push back to remote (bare-repo stand-in)
+│   └── ⚛️ Angular Hands-on/student-course-portal/  # Angular 20 SPA — 10 hands-on (forms→routing→HTTP→NgRx→tests)
 │
 ├── .github/
 └── .gitignore
@@ -233,6 +250,52 @@ concept write-up. `node_modules` is not committed, so run `npm install` first.
 
 ---
 
+## 🔀 Week 6 · Git Hands-on Labs
+
+Five hands-on labs walking through the everyday Git workflow, each executed for real with
+**Git 2.49.0** (real command output captured in each folder's `README.md`, plus a
+re-runnable `solve.sh`):
+
+| # | Lab | Focus | Demo repo |
+|:-:|-----|-------|-----------|
+| 1 | **1. Git-HOL** | Git config, Notepad++ as default editor, first `add`/`commit` | `GitDemo/` |
+| 2 | **2. Git-HOL** | `.gitignore` — ignoring `*.log` files and a `log/` folder | `GitIgnoreDemo/` |
+| 3 | **3. Git-HOL** | Branching & merging (`GitNewBranch` → `master`), P4Merge | `GitBranchDemo/` |
+| 4 | **4. Git-HOL** | Merge-conflict resolution (3-way / P4Merge), ignore `*.orig` | `GitConflictDemo/` |
+| 5 | **5. Git-HOL** | Clean up & push back to a remote (local bare-repo stand-in) | `GitCleanupDemo/` |
+
+GUI-only steps (Notepad++ editor, P4Merge visual diff/merge) and remote sign-up are
+documented but not executed in a non-interactive shell; where a real remote was needed, a
+**local bare repository** stands in for GitLab/GitHub so `pull`/`push` genuinely run.
+
+📁 `Week 6/1–5. Git-HOL/` · each folder has its own `README.md` and `solve.sh`.
+
+---
+
+## ⚛️ Week 6 · Angular v20 — Student Course Portal
+
+A single **Angular 20 (standalone)** SPA built incrementally across **10 hands-on
+exercises** — from components through forms, routing, HTTP, NgRx state and unit testing.
+All exercises add to the *same* project (`student-course-portal`).
+
+| # | Hands-On | Key Concepts |
+|:-:|----------|--------------|
+| 1 | Setup & first components | CLI workspace, standalone structure, `HeaderComponent`/`HomeComponent` |
+| 2 | Binding & lifecycle | interpolation/property/event/two-way, `ngOnInit/OnDestroy/OnChanges`, `@Input`/`@Output` |
+| 3 | Directives & pipes | `*ngIf/*ngFor(trackBy)/*ngSwitch`, `ngClass`/`ngStyle`, custom `HighlightDirective` + `CreditLabelPipe` |
+| 4 | Template-driven forms | `ngForm`/`ngModel`, validators, error messages, reset |
+| 5 | Reactive forms | `FormBuilder`, `FormArray`, custom sync + async validators |
+| 6 | Services & DI | `providedIn:'root'` singletons, service-to-service, component-scoped provider |
+| 7 | Routing | nested routes, params/query, lazy loading, `CanActivate`/`CanDeactivate` guards |
+| 8 | HTTP client | `HttpClient` CRUD, `map/tap/retry/catchError/switchMap`, auth/error/loading interceptors |
+| 9 | State management | **NgRx** store, actions, reducers, selectors, effects, cross-slice selector |
+| 10 | Unit testing | Jasmine/Karma/TestBed — component (`MockStore`), service (`HttpTestingController`) |
+
+📁 `Week 6/Angular Hands-on/student-course-portal/` · see its local `README.md` for full
+run steps (`npm install`, `npm run api`, `npm start`, `ng test`).
+
+---
+
 ## 🚀 How to Run
 
 <details>
@@ -295,6 +358,34 @@ JSONPlaceholder API.
 
 </details>
 
+<details>
+<summary><strong>🔀 Git labs (Week 6)</strong></summary>
+
+```bash
+# From inside any Week 6 Git lab folder, in Git Bash:
+bash solve.sh     # runs every command from that lab end-to-end
+```
+Requires **Git 2.x** (built with 2.49.0). GUI steps (Notepad++, P4Merge) are documented in
+each lab's `README.md`; lab 5 uses a local bare repo as the remote so `push`/`pull` run.
+
+</details>
+
+<details>
+<summary><strong>⚛️ Angular portal (Week 6)</strong></summary>
+
+```bash
+cd "Week 6/Angular Hands-on/student-course-portal"
+npm install                                    # node_modules is not committed
+npm run api                                    # JSON Server mock API on :3000
+npm start                                      # dev server at http://localhost:4200
+npm run build                                  # production build
+ng test --watch=false --browsers=ChromeHeadless   # 40 unit tests
+```
+Requires **Node.js ≥ 20.19 / 22.12** (Angular CLI v20) and **npm**. Run `npm run api` in a
+separate terminal so the HTTP/NgRx features have data.
+
+</details>
+
 ---
 
 ## ✅ Verification Status
@@ -308,6 +399,8 @@ JSONPlaceholder API.
 | Web API (Week 2/3, net8.0) | ⚙️ Inspected | Code reviewed; run locally with the .NET 8 SDK |
 | Microservices (Week 4, net8.0) | ⚙️ Inspected | JWT auth reviewed; run locally with the .NET 8 SDK |
 | React (Week 5) | ✅ Builds | `npm install` + `npm run build` → "Compiled successfully" (Node 20, npm 11); run `npm start` to view |
+| Git (Week 6) | ✅ Executed | All 5 labs run for real with Git 2.49.0; real command output captured in each `README.md` |
+| Angular (Week 6) | ✅ Builds + tests | `ng build` compiles (lazy chunk emitted); `ng test` → **40/40 specs pass** (headless Chrome); JSON Server API verified |
 
 > The .NET projects were reviewed by reading only — the environment used here has the
 > .NET **runtime** but no **SDK**, so `dotnet build`/`test` could not be executed. Build
@@ -320,7 +413,8 @@ JSONPlaceholder API.
 `T-SQL` · `Microsoft SQL Server` · `Java 17` · `Maven` · `JUnit 5` ·
 `C#` · `.NET Framework 4.8` · `.NET 8` · `NUnit` · `Moq` · `EF Core 8` ·
 `ASP.NET Core` · `Swagger / Swashbuckle` · `JWT` · `Confluent.Kafka` ·
-`React 18` · `Node.js` · `npm`
+`React 18` · `Node.js` · `npm` · `Git` · `Angular 20` · `NgRx` · `RxJS` ·
+`JSON Server` · `Jasmine` · `Karma`
 
 ---
 

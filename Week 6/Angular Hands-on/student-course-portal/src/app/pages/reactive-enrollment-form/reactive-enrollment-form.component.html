@@ -1,0 +1,75 @@
+<!-- Hands-On 5: Reactive Enrollment form -->
+<h2>Enrollment Request (Reactive)</h2>
+
+<form [formGroup]="enrollForm" (ngSubmit)="onSubmit()" class="enroll-form">
+  <!-- studentName -->
+  <div class="field">
+    <label for="rName">Student Name</label>
+    <input id="rName" type="text" formControlName="studentName" />
+    <div class="errors" *ngIf="enrollForm.get('studentName')?.touched">
+      <span *ngIf="enrollForm.get('studentName')?.errors?.['required']">Name is required</span>
+      <span *ngIf="enrollForm.get('studentName')?.errors?.['minlength']">
+        Name must be at least 3 characters
+      </span>
+    </div>
+  </div>
+
+  <!-- studentEmail (with async emailTaken check) -->
+  <div class="field">
+    <label for="rEmail">Student Email</label>
+    <input id="rEmail" type="email" formControlName="studentEmail" />
+    <div class="errors" *ngIf="enrollForm.get('studentEmail')?.touched">
+      <span *ngIf="enrollForm.get('studentEmail')?.errors?.['required']">Email is required</span>
+      <span *ngIf="enrollForm.get('studentEmail')?.errors?.['email']">Enter a valid email</span>
+      <span *ngIf="enrollForm.get('studentEmail')?.errors?.['emailTaken']">Email is already taken</span>
+    </div>
+    <small *ngIf="enrollForm.get('studentEmail')?.pending" class="pending">Checking email…</small>
+  </div>
+
+  <!-- courseId / course code (with noCourseCode rule) -->
+  <div class="field">
+    <label for="rCourse">Course Code</label>
+    <input id="rCourse" type="text" formControlName="courseId" placeholder="e.g. CS101" />
+    <div class="errors" *ngIf="enrollForm.get('courseId')?.touched">
+      <span *ngIf="enrollForm.get('courseId')?.errors?.['required']">Course code is required</span>
+      <span *ngIf="enrollForm.get('courseId')?.errors?.['noCourseCode']">
+        Course code starting with XX is not allowed.
+      </span>
+    </div>
+  </div>
+
+  <!-- preferredSemester -->
+  <div class="field">
+    <label for="rSem">Preferred Semester</label>
+    <select id="rSem" formControlName="preferredSemester">
+      <option value="Odd">Odd</option>
+      <option value="Even">Even</option>
+    </select>
+  </div>
+
+  <!-- agreeToTerms -->
+  <div class="field field--check">
+    <label>
+      <input type="checkbox" formControlName="agreeToTerms" />
+      I agree to the enrollment terms
+    </label>
+  </div>
+
+  <!-- Hands-On 5, Task 2, step 56: dynamic FormArray of additional courses -->
+  <div class="array-section" formArrayName="additionalCourses">
+    <div class="array-head">
+      <span>Additional Courses</span>
+      <button type="button" class="btn btn--ghost" (click)="addCourse()">Add Another Course</button>
+    </div>
+    <div class="array-row" *ngFor="let ctrl of additionalCourses.controls; let i = index">
+      <input [formControl]="$any(ctrl)" placeholder="Course code" />
+      <button type="button" class="btn btn--danger" (click)="removeCourse(i)">Remove</button>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="btn" [disabled]="enrollForm.invalid">Submit</button>
+  </div>
+
+  <pre class="submitted" *ngIf="submittedValue">{{ submittedValue | json }}</pre>
+</form>

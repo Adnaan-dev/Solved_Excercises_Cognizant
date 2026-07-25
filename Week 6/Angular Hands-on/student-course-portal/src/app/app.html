@@ -1,0 +1,11 @@
+<!-- Hands-On 1: header + router outlet. Hands-On 8: global loading spinner. -->
+<app-header></app-header>
+
+<!-- global spinner shown while any HTTP request is in flight (async pipe) -->
+<div class="global-spinner" *ngIf="isLoading$ | async">
+  <div class="spinner"></div>
+</div>
+
+<main class="app-content">
+  <router-outlet></router-outlet>
+</main>

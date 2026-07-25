@@ -1,0 +1,14 @@
+<!-- Hands-On 7, Task 1: course detail loaded from the :id route param -->
+<a routerLink="/courses" class="back">&larr; Back to courses</a>
+
+<div class="detail-card" *ngIf="course; else notFound">
+  <h2>{{ course.name }}</h2>
+  <p class="code">{{ course.code }}</p>
+  <p>{{ course.credits | creditLabel }}</p>
+  <p>Grade status: <strong>{{ course.gradeStatus }}</strong></p>
+  <p class="id">Course ID: {{ course.id }}</p>
+</div>
+
+<ng-template #notFound>
+  <p class="empty">Course not found.</p>
+</ng-template>

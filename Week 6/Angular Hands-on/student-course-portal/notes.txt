@@ -1,0 +1,49 @@
+Student Course Portal — Project File Notes (Hands-On 1, Task 1)
+==============================================================
+
+Purpose of each generated file/folder:
+
+angular.json          - Angular CLI workspace config: build/serve/test targets, file
+                        paths, budgets, assets, styles, and schematics defaults.
+tsconfig.json         - Base TypeScript compiler options shared by the whole workspace
+                        (target, strictness, paths) - other tsconfigs extend this one.
+tsconfig.app.json     - TypeScript config for the APPLICATION build; extends tsconfig.json
+                        and lists the app entry files (excludes test/spec files).
+package.json          - npm manifest: project metadata, dependencies/devDependencies, and
+                        scripts (start, build, watch, test).
+src/main.ts           - Application ENTRY POINT. Bootstraps the standalone root component
+                        (App) with the application config via bootstrapApplication().
+src/app/app.config.ts - The standalone application configuration (replaces the old
+                        app.module.ts NgModule). Registers app-wide providers such as
+                        provideRouter(), and later provideHttpClient()/provideStore().
+src/app/app.ts        - The ROOT component class (App). In Angular 20 standalone the root
+                        component's decorator lists its own imports (RouterOutlet, etc.).
+                        (Older Angular versions call this app.component.ts / AppComponent.)
+src/index.html        - The single HTML page of the SPA. Contains <app-root></app-root>;
+                        Angular renders the whole application inside this tag.
+
+Note: This project uses Angular 20's STANDALONE API, so there is an app.config.ts instead
+of an app.module.ts, and main.ts bootstraps the root component directly (no NgModule).
+
+--------------------------------------------------------------------------------
+Build output (Hands-On 1, Task 1, step 4)
+--------------------------------------------------------------------------------
+`ng build` produces the dist/ folder (dist/student-course-portal/browser). The compiled
+application JavaScript lives in the hashed bundle files, primarily main-<hash>.js
+(application code) plus polyfills-<hash>.js and chunk-*.js. index.html references them.
+
+--------------------------------------------------------------------------------
+Production budgets (Hands-On 1, Task 1, step 5)
+--------------------------------------------------------------------------------
+Located in angular.json > projects > student-course-portal > architect > build >
+configurations > production > budgets:
+
+  initial:            maximumWarning 500kB, maximumError 1MB
+     -> Controls the total INITIAL bundle size downloaded on first load. A warning is
+        printed above 500kB; the build FAILS above 1MB. Keeps first-load payload small.
+
+  anyComponentStyle:  maximumWarning 4kB, maximumError 8kB
+     -> Controls the size of any single component's CSS file. Warns above 4kB, errors
+        above 8kB - encourages small, focused component stylesheets.
+
+These budgets guard performance by failing the production build when bundles grow too big.

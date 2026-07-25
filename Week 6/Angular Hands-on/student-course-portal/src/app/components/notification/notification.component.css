@@ -1,0 +1,44 @@
+.notifications {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 10px;
+  max-width: 420px;
+}
+
+.notifications h4 {
+  margin: 0 0 0.6rem;
+  color: #9a3412;
+}
+
+.notif-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.notif-actions button {
+  padding: 0.35rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: #ea580c;
+  color: #fff;
+  cursor: pointer;
+}
+
+.notif-actions button.ghost {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.notifications ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.empty {
+  color: #9a3412;
+  font-style: italic;
+  margin: 0;
+}

@@ -1,0 +1,32 @@
+<!-- Hands-On 3: ngClass (getter), ngStyle (border colour), ngSwitch (grade badge), custom pipe -->
+<div class="course-card" [ngClass]="cardClasses" [ngStyle]="{ 'border-left': '5px solid ' + borderColor }">
+  <div class="card-head">
+    <h3>{{ course.name }}</h3>
+
+    <!-- Hands-On 3, Task 1, step 27: grade status badge via *ngSwitch -->
+    <span [ngSwitch]="course.gradeStatus" class="badge">
+      <span *ngSwitchCase="'passed'" class="badge badge--passed">Passed</span>
+      <span *ngSwitchCase="'failed'" class="badge badge--failed">Failed</span>
+      <span *ngSwitchDefault class="badge badge--pending">Pending</span>
+    </span>
+  </div>
+
+  <p class="code">{{ course.code }}</p>
+  <!-- Hands-On 3, Task 3: custom creditLabel pipe -->
+  <p class="credits">{{ course.credits | creditLabel }}</p>
+
+  <!-- expanded details, toggled by the button below (Hands-On 3, Task 2) -->
+  <div class="details" *ngIf="isExpanded">
+    <p class="id">Course ID: {{ course.id }}</p>
+    <p>Status: {{ course.gradeStatus }}</p>
+  </div>
+
+  <div class="card-actions">
+    <button class="enroll-btn" (click)="onEnrollClick()">
+      {{ (enrolledIds$ | async)?.includes(course.id) ? 'Unenroll' : 'Enroll' }}
+    </button>
+    <button class="details-btn" (click)="toggleDetails()">
+      {{ isExpanded ? 'Hide Details' : 'Show Details' }}
+    </button>
+  </div>
+</div>
